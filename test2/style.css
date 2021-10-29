@@ -1,0 +1,14 @@
+.red{
+    color: red;
+}
+
+#app ul {list-style: none;}
+
+#app li > span.done{
+    text-decoration: line-through;
+    color: red;
+}
+
+ span{
+    color: blueviolet;
+}

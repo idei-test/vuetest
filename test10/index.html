@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="app">
+        <!-- プレーンなclass とv-bindクラスは共存する -->
+        <p> hello
+            <span class="bg-gray text-blue" :class="{large: isLarge,'text-denger':hasError}">vue</span>
+        </p>
+
+        <hr>
+        <p :class="largeClass">おおきい</p>
+        <!-- 複数のクラス属性を[]でバインドできる -->
+        <p :class="[largeClass,dengerClass]">あぶない</p>
+
+    </div>
+    <!-- ---------------------------------------------------- -->
+    <script src="https://unpkg.com/vue@3.1.5"></script>
+    <script src="./index.js"></script>
+</body>
+
+</html>

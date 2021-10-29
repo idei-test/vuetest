@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="app">
+        <!-- {{ }} マスタッシュ構文 -->
+        <p>{{message}}</p>
+        <p>{{count}} {{user.name_}} {{colors[2]}}</p>
+
+        <!-- 属性にマスタッシュ構文は使用できない -->
+        <input type="text" value="{{ message }}">
+        <!-- ディレクティブ　vから始まる命令 
+         bindディレクティブで属性に値を渡す -->
+        <input type="text" v-bind:value="message">
+
+        <p v-if="toggle">表示、非表示は v-if</p>
+        <ol>
+            <!-- v-for = "変数名 in 配列名" -->
+            <li v-for="index in colors">{{index}}</li>
+        </ol>
+
+        <ul>
+            <!-- forではオブジェクトも回せる ()で値とkeyの値取り出し -->
+            <li v-for="(val,key) in user">{{key}} -> {{ val }}</li>
+        </ul>
+
+        <button v-on:click="onClick_idi">今何時？</button>
+        <p>{{now}}</p>
+
+        <!-- 双方向データバインディング 
+        dataオブジェクト　←→　テンプレート　どちらの変更も反映される -->
+        <p><input type="text" v-model="message"></p>
+
+        <!-- コンポーネント利用　hello~と表示される -->
+        <hello-component></hello-component>
+
+    </div>
+
+    <br>
+    <br>
+    vue領域以外では構文は使えない
+    {{ message }}
+
+    <!-- CDN コンテンツ　デリバリー　ネットワーク　からvue読み込み -->
+    <script src="https://unpkg.com/vue@3.1.5"></script>
+    <script src="./index.js"></script>
+</body>
+
+</html>

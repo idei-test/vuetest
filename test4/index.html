@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <p>{{message}}</p>
+        <p>{{number /3}}</p>
+        <p>
+            <input type="checkbox" value="flag?" v-model="flag">
+            {{ flag? "正解です":"間違いです"}}
+            <!-- 式ではない文はエラーになる
+            <p>{{let x = 2;}}</p> 
+            三項演算子以外のフロー操作はできない
+            <p>{{if(ok){return message} }}</p>
+        -->
+        </p>
+        <!-- --------- v-bindの省略記法 ------------ -->
+        <a v-bind:href="url">you</a>
+        <br>
+        <a :href="url">tube</a>
+
+    </div>
+    <!-- ーーーーーーーーーーーーーーーーーーーーーー -->
+    <script src="https://unpkg.com/vue@3.1.5"></script>
+    <script src="./main.js"></script>
+
+</body>
+
+</html>

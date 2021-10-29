@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>監視プロパティ</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="app">
+        <!-- 監視プロパティ　ウォッチャ
+        状態が変化したとき処理を実行する(reactのステートみたいな) -->
+
+        <p>{{ message }}</p>
+        <input type="text" v-model="message">
+        <hr>
+        <p><input type="text" v-model="km">km</p>
+        <p><input type="text" v-model="m">m</p>
+    </div>
+    <!-- ---------------------------------------------------- -->
+    <script src="https://unpkg.com/vue@3.1.5"></script>
+    <script src="./index.js"></script>
+</body>
+
+</html>

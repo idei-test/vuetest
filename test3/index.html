@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+
+        <!-- ---------------------------------------------------------
+            v-once 
+            一度だけの更新してその後静的なコンテンツになる
+            パフォーマンスが良い -->
+        <p v-once>{{ message }} 変更されない</p>
+        <button v-on:click=clickHandler>ボタン</button>
+        <hr>
+        <!-- --------------------------------------------------------- 
+            v-pre 
+            すべての子要素のコンパイルがスキップされる
+            vueの働きがなくなる -->
+        <p v-pre>{{message}}</p>
+        <hr>
+        <!-- ---------------------------------------------------------
+            v-html
+            通常はメッセージ内にスクリプトがあってもテキスト扱い -->
+        <p>テキスト扱い→　{{ message2 }}</p>
+        <!-- v-html
+            サーバーからのhtmlを使用するためテキストではなくスクリプト
+            として反映されるが、xss 攻撃の可能性があるため注意！！！
+        -->
+        xssの危険性がある構造↓
+        <p v-html="message2"></p>
+        <input type="text" v-model="message2">
+        <hr>
+        <!-- -----------------------------------------------------------
+            v-cloak ちらつき防止
+            html描写～インスタンスコンパイルまでの間、
+            vue文法がそのまま画面に描写されてしまうため、ちらつきが
+            発生する。防止するため、v-cloakで指定した物をcssで非表示
+            つまり、v-cloakは読み込まれると消える属性
+         -->
+        <p v-cloak>ちらつき防止　{{message}}</p>
+        <hr>
+        <!-- -----------------------------------------------------------
+        v-text {{}}構文の代わりに属性からテキストを指定できる
+        基本的には、マシュタッシュ構文おすすめ(自由度がある)
+     -->
+        <p v-text="message"></p>
+    </div>
+    <!-- ーーーーーーーーーーーーーーーーーーーーーー -->
+    <script src="https://unpkg.com/vue@3.1.5"></script>
+    <script src="./main.js"></script>
+
+</body>
+
+</html>
